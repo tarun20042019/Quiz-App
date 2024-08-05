@@ -167,8 +167,10 @@ body{
    align-items: center;
 }
 .quiz-sec.active{
+    background: url(Q.jpg) no-repeat;
     left: 0;
-
+    background-size: cover;
+    background-position: center;
 }
 .quiz-sec .qbox{
     position: relative;

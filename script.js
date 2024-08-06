@@ -99,6 +99,13 @@ let numb=1;
 const nb=document.querySelector('.nextq');
 
 nb.onclick = () => {
+    if(count<q.length -1){
+        nb.classList.remove('active');
+    }
+    if(count==q.length-1){
+        const n=document.querySelector('.nextq');
+        n.textContent='Results';
+    }
     count++;
     numb++;
 showq(count);
@@ -121,24 +128,50 @@ const option=document.querySelectorAll('.options');
 for(let i=0; i<option.length;i++){
     option[i].setAttribute('onclick','optionSelected(this)');
 }
+
     
 }
+let userscore=0;
 function optionSelected(answer){
+
+    nb.classList.add('active');
     let userans=answer.textContent;
     let corans=q[count].answer;
+    let optioli=optionList.children.length;
+  
+    for(let i=0;i<optioli;i++){
+        optionList.children[i].classList.add('disable');
+    }
     if(userans==corans){
-answer.classList.add('correct');
-console.log("correct");
+        userscore = userscore + 1;
+ answer.classList.add('correct');
+ console.log("correct");
+ score();
 
 }
+
 else{
         console.log("incorrect");
         answer.classList.add('wrong');
+        for(let i=0;i<optioli;i++){
+            if(optionList.children[i].textContent == corans){
+
+                optionList.children[i].setAttribute('class','options correct');
+            }
+        }
     }
+
+
 }
 function qcount(index){
     const qtot=document.querySelector('.qtotal');
     qtot.textContent=`${index} of ${q.length} Questions`;
 }
+function score(){
+    const score1=document.querySelector('.topscore');
+    score1.textContent=`Score : ${userscore} / ${q.length}`;
+}
+
+
 
 

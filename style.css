@@ -95,6 +95,7 @@ body{
 .rulespage{
     position: absolute;
     top: 50%;
+    /* left: 0%; */
     left: 50%;
     width: 500px;
     background:rgb(254, 254, 254);
@@ -155,27 +156,29 @@ body{
     width: 200%;
 }
 .quiz-sec{
-    position: relative;
-    left: -50%;
+    position:relative;
+     left: -50%; 
+     /* left: 0; */
     width: 100%;
+    justify-content: center;
+    align-items: center;
     background:rgb(22, 8, 8);
+    display: flex;
     transition: .8s ease-in-out;
     transition-delay: .25s;
     z-index: 100;
-   display: flex;
-   justify-content: center;
-   align-items: center;
 }
 .quiz-sec.active{
-    background: url(Q.jpg) no-repeat;
+    background: url(qpp.webp) no-repeat;
     left: 0;
     background-size: cover;
     background-position: center;
+    /* backface-visibility: var(-50%); */
 }
 .quiz-sec .qbox{
     position: relative;
     width: 500px;
-    background: transparent;
+    background:rgb(53, 43, 43);
     border: 2px solid purple;
     border-radius: 5px;
     display: flex;
@@ -228,6 +231,9 @@ border-color: green;
 color:red;
 border-color: red;
 }
+.optionlist .options.disable{
+pointer-events: none;
+}
 .qbox .qfooter{
     display: flex;
     justify-content: space-around;
@@ -244,14 +250,19 @@ border-color: red;
     width: 100px;
     height: 45px;
     border-radius: 3px;
-    background: purple;
+    background: rgb(111, 104, 111);
     padding: 12px;
     border: 2px solid rgba(255,255,255, 0.2);
     border-radius: 2px;
     margin: 15px 0;
     cursor: pointer;
     transition: .6s ease;
+    pointer-events: none;
 }
 .qbox .qfooter .nextq:hover{
-    background: grey;
+    background:grey;
+}
+.qbox .qfooter .nextq.active{
+    pointer-events: auto;
+    background: purple;
 }
